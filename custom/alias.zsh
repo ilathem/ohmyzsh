@@ -18,10 +18,14 @@ alias z="nvim ~/.zshrc"
 # open nvim config
 alias n="cd ~/.config/nvim && nvim ."
 
-function t() {
-  termdown "$1"  -B  && dunstify -t 60000 "Timer finished" "Clear with Super+space"
+# termdown timer
+function tt() {
+  if [[ $# -eq 1 ]] ; then 
+    termdown "$1"  && dunstify -t 60000 "Timer finished" "Clear with Super+space";
+  fi
 }
 
+# to easily remember it
 alias timer="termdown"
 
 # Open zsh config file 
@@ -41,3 +45,8 @@ alias p="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo p
 # same as above but with yay
 alias y="yay -Slq | fzf --multi --preview 'yay -Si {1}' | xargs -ro yay -S"
 
+# open this file in neovim
+alias openAlias="nvim ~/dotfiles/zsh/.oh-my-zsh/custom/alias.zsh"
+
+# gs -> git status
+alias gs="git status"
